@@ -1,64 +1,41 @@
-import "./App.css"
-import { Counter } from "./features/counter/Counter"
-import { Quotes } from "./features/quotes/Quotes"
-import logo from "./logo.svg"
+import { useState } from "react"
+import { Provider } from "react-redux"
+import { PersistGate } from "redux-persist/integration/react"
+import { store, persistor } from "./store"
+import Header from "./components/layout/Header"
+import ProductsPage from "../src/pages/ProductPage"
+import OrderCompletion from "./components/billing/OrderCompletion"
 
-export const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <Counter />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <Quotes />
-      <span>
-        <span>Learn </span>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React
-        </a>
-        <span>, </span>
-        <a
-          className="App-link"
-          href="https://redux.js.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Redux
-        </a>
-        <span>, </span>
-        <a
-          className="App-link"
-          href="https://redux-toolkit.js.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Redux Toolkit
-        </a>
-        <span>, </span>
-        <a
-          className="App-link"
-          href="https://react-redux.js.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React Redux
-        </a>
-        ,<span> and </span>
-        <a
-          className="App-link"
-          href="https://reselect.js.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Reselect
-        </a>
-      </span>
-    </header>
-  </div>
-)
+type Page = "products" | "billing"
+
+function App() {
+  const [currentPage, setCurrentPage] = useState<Page>("products")
+
+  const handleCheckout = () => {
+    setCurrentPage("billing")
+  }
+
+  const handleBackToProducts = () => {
+    setCurrentPage("products")
+  }
+
+  return (
+    <Provider store={store}>
+      <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+        <div className="min-h-screen bg-gray-50">
+          <Header />
+
+          {currentPage === "products" && (
+            <ProductsPage onCheckout={handleCheckout} />
+          )}
+
+          {currentPage === "billing" && (
+            <OrderCompletion onBack={handleBackToProducts} />
+          )}
+        </div>
+      </PersistGate>
+    </Provider>
+  )
+}
+
+export default App
