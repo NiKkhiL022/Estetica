@@ -5,7 +5,8 @@ import {
   setSearchQuery,
   setSelectedCategory,
 } from "../store/slices/productsSlice"
-// ...existing imports
+import { Link } from "react-router-dom"
+
 import ProductSearch from "../components/products/ProductSearch"
 import CategoryFilter from "../components/products/CategoryFilter"
 import ProductGrid from "../components/products/ProductGrid"
@@ -140,9 +141,12 @@ const ProductsPage: React.FC<{ onCheckout: () => void }> = ({ onCheckout }) => {
             Form + Yup.
           </p>
           <p className="mt-2">
-            <a href="/docs" className="text-purple-600 hover:underline text-sm">
+            <Link
+              to="/docs"
+              className="text-purple-600 hover:underline text-sm"
+            >
               Read full project architecture and details →
-            </a>
+            </Link>
           </p>
         </div>
       </div>
