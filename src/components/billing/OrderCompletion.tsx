@@ -142,10 +142,12 @@ const OrderCompletion: React.FC<OrderCompletionProps> = ({ onBack }) => {
                   </div>
                 </div>
               ))}
-
-              <button className="w-full border-2 border-dashed border-gray-300 rounded-lg p-3 sm:p-4 text-gray-600 hover:border-purple-400 hover:text-purple-600 transition-colors duration-200 text-sm sm:text-base">
-                <Plus className="w-5 h-5 mx-auto mb-1" />
-                Add Extra Products
+              <button
+                onClick={onBack}
+                className="w-full border-2 border-dashed border-gray-300 rounded-lg p-3 sm:p-4 text-gray-600 hover:border-purple-400 hover:text-purple-600 transition-colors duration-200 text-sm sm:text-base flex items-center justify-center space-x-2"
+              >
+                <Plus className="w-5 h-5" />
+                <span>Add Extra Products</span>
               </button>
             </div>
           </div>

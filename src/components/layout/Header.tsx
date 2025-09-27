@@ -37,14 +37,14 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
             </button>
 
             <div className="flex items-center space-x-1 sm:space-x-2">
-              <span className="text-sm font-medium text-gray-700 hidden sm:inline">
+              {/* <span className="text-sm font-medium text-gray-700 hidden sm:inline">
                 AD
               </span>
               <div className="flex flex-col hidden sm:block">
                 <span className="text-xs sm:text-sm font-medium text-gray-900">
                   Profile
                 </span>
-              </div>
+              </div> */}
               <User className="w-5 h-5 text-gray-600" />
             </div>
           </div>
@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
 
       <div className="mt-4">
         <h2 className="text-base sm:text-lg font-bold text-gray-900">
-          Welcome Back, Rajesh
+          Welcome Back, Nikhil
         </h2>
         <p className="text-xs sm:text-sm text-gray-600">
           Hello, here you can manage your orders by zone
