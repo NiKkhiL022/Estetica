@@ -27,16 +27,16 @@ const CartSidebar: React.FC<{ onCheckout: () => void }> = ({ onCheckout }) => {
   }
 
   return (
-    <div className="w-full lg:w-80 bg-white border-t lg:border-t-0 lg:border-l border-gray-200 flex flex-col lg:h-screen">
+    <div className="w-full lg:w-[420px] bg-white border-t lg:border-t-0 lg:border-l border-gray-200 flex flex-col lg:h-[80vh]">
       <div className="flex flex-col h-full">
         {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
           <h2 className="text-base sm:text-lg font-semibold text-gray-900">
             Product Cart
           </h2>
-          <button className="p-1 hover:bg-gray-100 rounded-lg">
+          {/* <button className="p-1 hover:bg-gray-100 rounded-lg">
             <Trash2 className="w-5 h-5 text-red-500" />
-          </button>
+          </button> */}
         </div>
 
         {/* Cart Items */}
