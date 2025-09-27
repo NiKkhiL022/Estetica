@@ -51,6 +51,16 @@ const ProductsPage: React.FC<{ onCheckout: () => void }> = ({ onCheckout }) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <div className="p-4 sm:p-6">
+        <div className="mt-4">
+          <h2 className="text-base sm:text-lg font-bold text-gray-900">
+            Welcome Back, Nikhil
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-600">
+            Hello, here you can manage your orders by zone
+          </p>
+        </div>
+      </div>
       <div className={`flex flex-col lg:flex-row ${hasItems ? "" : ""}`}>
         {/* Main Content */}
         <div className={`flex-1 p-4 sm:p-6 ${hasItems ? "lg:pr-4" : ""}`}>
@@ -119,6 +129,22 @@ const ProductsPage: React.FC<{ onCheckout: () => void }> = ({ onCheckout }) => {
           totalPages={totalPages}
           onPageChange={setPage}
         />
+      </div>
+      <div className="max-w-7xl mx-auto p-4 sm:p-6 mt-6">
+        <div className="bg-white p-4 rounded-lg border border-gray-200">
+          <h3 className="text-sm font-semibold mb-2">About this project</h3>
+          <p className="text-sm text-gray-700">
+            Estetica is a React + TypeScript front-end demonstrating product
+            search, category filtering, client-side pagination, cart
+            management/persistence, and a billing UI validated with React Hook
+            Form + Yup.
+          </p>
+          <p className="mt-2">
+            <a href="/docs" className="text-purple-600 hover:underline text-sm">
+              Read full project architecture and details →
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   )
