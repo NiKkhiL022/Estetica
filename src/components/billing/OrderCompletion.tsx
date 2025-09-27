@@ -1,7 +1,11 @@
 import React, { useState } from "react"
 import { CreditCard as Edit3, Trash2, Plus, Minus } from "lucide-react"
 import { useAppSelector, useAppDispatch } from "../../hooks/redux"
-import { updateQuantity, removeFromCart } from "../../store/slices/cartSlice"
+import {
+  updateQuantity,
+  removeFromCart,
+  clearCart,
+} from "../../store/slices/cartSlice"
 import { BillingSummary } from "../../types"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -42,6 +46,8 @@ const OrderCompletion: React.FC<OrderCompletionProps> = ({ onBack }) => {
   const onSubmit = (data: FormValues) => {
     // For now we just set a submitted flag and log the data. Integration (e.g., Supabase) can be added later.
     console.log("Billing form submitted:", data)
+    // Clear the cart now that payment is completed and show the confirmation UI
+    dispatch(clearCart())
     setSubmitted(true)
   }
 
